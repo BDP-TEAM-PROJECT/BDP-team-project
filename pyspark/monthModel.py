@@ -36,6 +36,8 @@ def getMonthModel(df_data, month):
 	evaluator = RegressionEvaluator()
 	evaluator.setPredictionCol("prediction")
 	evaluator.setLabelCol("Radiation")
+
+	print("r2", evaluator.evaluate(predAndLabel, {evaluator.metricName: "r2"}))
 	print("RMSE:", evaluator.evaluate(predAndLabel, {evaluator.metricName: "rmse"}))
 
 
